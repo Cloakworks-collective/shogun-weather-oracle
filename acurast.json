@@ -1,8 +1,8 @@
 {
   "projects": {
-    "tutorial3": {
-      "projectName": "tutorial3",
-      "fileUrl": "dist/index.bundle.js",
+    "warlords-weather": {
+      "projectName": "warlords-weather",
+      "fileUrl": "dist/bundle.js",
       "network": "canary",
       "onlyAttestedDevices": true,
       "assignmentStrategy": {
@@ -10,7 +10,7 @@
       },
       "execution": {
         "type": "onetime",
-        "maxExecutionTimeInMs": 60000
+        "maxExecutionTimeInMs": 300000
       },
       "maxAllowedStartDelayInMs": 10000,
       "usageLimit": {
