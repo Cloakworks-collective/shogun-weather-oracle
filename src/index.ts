@@ -31,7 +31,9 @@ if (typeof _STD_ === "undefined") {
 async function getWeatherData() {
   const response = await fetch(`${BASE_URL}data/2.5/weather?q=${LOCATION}&appid=${API_KEY}`);
   const data = await response.json();
-  return data["weather"][0]["main"];
+  const condition = data["weather"][0]["main"];
+  console.log(`Weather condition in ${LOCATION}: ${condition}`);
+  return condition;
 }
 
 function weatherConditionToNumber(condition: string): string {
@@ -92,13 +94,12 @@ async function callWeatherChange(weatherCondition: string) {
   console.log("Transaction hash:", executedTransaction.hash);
 }
 
-async function fetchAndPostWeatherData(): Promise<void> {
+async function fetchAndPostWeatherData() {
   try {
     const condition = await getWeatherData();
     const conditionNumber = weatherConditionToNumber(condition);
     try {
-      const status = await callWeatherChange(conditionNumber);
-      console.log("Success:", status);
+      await callWeatherChange(conditionNumber);
     } catch (error) {
       console.error("Error posting data:", error);
     }

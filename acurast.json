@@ -9,8 +9,9 @@
         "type": "Single"
       },
       "execution": {
-        "type": "onetime",
-        "maxExecutionTimeInMs": 300000
+        "type": "interval",
+        "intervalInMs": 300000,
+        "numberOfExecutions": 3
       },
       "maxAllowedStartDelayInMs": 10000,
       "usageLimit": {
