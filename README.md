@@ -1,6 +1,10 @@
-# Acurast App with External Dependencies Example
+# Acurast App that acts as Weather Oracle for Shogun Game
 
-This project demonstrates how to write a simple Acurast App that depends on modules other than Node.js or Acurast build-ins.
+For our proof of concept, we deployed nodejs script on a Acurast processor that fetches weather data from [openweathermap api](https://openweathermap.org/current). Assuming that the data from Openweather API is correct, the data is forwarded to the game smart contract (move module) without additional trust overhead. It is signed by a preassigned weatherman, verifying that the incoming data comes from the acurast processor. 
+
+The acurast data sets the weather condition to one of the following options, based on the [weather condition codes of the api](https://openweathermap.org/weather-conditions)
+
+Each weather condition affects the effectiveness of the units, adding a layer of strategy to the game. 
 
 ## App Runtime Environment
 
