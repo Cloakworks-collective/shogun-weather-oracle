@@ -10,7 +10,7 @@ It's important to ensure that any app deployed to the processors is compatible w
 
 ## Overview
 
-The project is a simple [TypeScript](https://www.typescriptlang.org/) app that depends on the [bn.js](https://github.com/indutny/bn.js) library. It uses [webpack](https://webpack.js.org/) to transpile TypeScript to JavaScript and bundle the code with its dependencies so that it can be deployed on Acurast processors.
+The project is a simple [TypeScript](https://www.typescriptlang.org/) app that depends on the [aptos-ts-sdk](https://github.com/aptos-labs/aptos-ts-sdk) library. It uses [webpack](https://webpack.js.org/) to transpile TypeScript to JavaScript and bundle the code with its dependencies so that it can be deployed on Acurast processors.
 
 #### Files
 - `src/index.ts`: main file
@@ -21,13 +21,12 @@ To deploy the app:
 
 1. Set your API endpoint in `src/index.ts` by replacing the placeholder:
 ```typescript
-const API_ENDPOINT = '<YOUR_API_ENDPOINT>';
+const API_KEY = 'OPENWEATHERMAP_API_KEY_HERE';
+const WEATHERMAN_PK = 'WEATHERMAN_PRIVATE_KEY_HERE';
 ```
 
-The app will use this endpoint to send the result of its execution:
-```
-HTTP POST { "result": <text> }
-```
+The app will use this wallet to send transacion to Shogun Smart Contract. - We need to make sure that this account has APT tokens for gas fees.
+
 
 2. Bundle the project:
 ```bash
@@ -37,4 +36,3 @@ $ npm run bundle
 3. Navigate to `./dist` and copy the contents of `index.bundle.js`.
 
 4. Use the copied content to create an Acurast deployment with [Acurast Console](https://console.acurast.com/).
-
